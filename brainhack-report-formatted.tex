@@ -100,15 +100,55 @@
 %%                                          %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\title{Nipype in CBRAIN}
+\title{Nipype interfaces in CBRAIN}
 \vskip2ex
-\projectURL{Project URL: \url{http://github.com/LORIS}}
+\projectURL{Project URL: \url{http://cbrain.mcgill.ca}}
 
 \author[
 addressref={aff1, aff2},
 corref={aff1},
-email={glatard@mcgill.edu.ca}
-]{\inits{TG} \fnm{T} \snm{Glatard}}
+email={tristan.glatard@mcgill.ca}
+]{\inits{TG} \fnm{Tristan} \snm{Glatard}}
+\author[
+addressref={aff1},
+%
+email={samir.das@mcgill.ca}
+]{\inits{SD} \fnm{Samir} \snm{Das}}
+\author[
+addressref={aff1},
+%
+email={reza.adalat@mcgill.ca}
+]{\inits{RA} \fnm{Reza} \snm{Adalat}}
+\author[
+addressref={aff1},
+%
+email={natacha.beck@mcgill.ca}
+]{\inits{NB} \fnm{Natacha} \snm{Beck}}
+\author[
+addressref={aff1},
+%
+email={remi.bernard@mail.mcgill.ca}
+]{\inits{RB} \fnm{Rémi} \snm{Bernard}}
+\author[
+addressref={aff1},
+%
+email={najmeh.khalili@mcgill.ca}
+]{\inits{NKM} \fnm{Najmeh} \snm{Khalili-Mahani}}
+\author[
+addressref={aff1},
+%
+email={pierre.rioux@mcgill.ca}
+]{\inits{PR} \fnm{Pierre} \snm{Rioux}}
+\author[
+addressref={aff1},
+%
+email={marc.rousseau@mcgill.ca}
+]{\inits{MER} \fnm{Marc-Étienne} \snm{Rousseau}}
+\author[
+addressref={aff1},
+%
+email={alan.evans@mcgill.ca}
+]{\inits{ACE} \fnm{Alan C.} \snm{Evans}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%                                          %%
@@ -120,19 +160,20 @@ email={glatard@mcgill.edu.ca}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \address[id=aff1]{%
-  \orgname{McConnell Brain Imaging Centre, Montréal Neurological Institute, McGill
-University and Institute of Pscychology},
+  \orgname{McGill Centre for Integrative Neuroscience (MCIN), Ludmer Centre for
+Neuroinformatics and Mental Health, Montreal Neurological Institute
+(MNI), McGill University},
   \city{Montréal},
-  \street{1 Queen St},
-  \postcode{55332},
+  \street{3801 University Street, WB-208},
+  \postcode{H3A 2B4},
   \postcode{Québec},
   \cny{Canada}
 }
 \address[id=aff2]{%
-  \orgname{CREATIS, Université Claude Bernard Lyon 1},
-  \city{Lyon},
-  \street{2 Rue Lyon},
-  \postcode{87777},
+  \orgname{University of Lyon, CNRS, INSERM, CREATIS.},
+  \city{Villeurbanne},
+  \street{7, avenue Jean Capelle},
+  \postcode{69621},
   %
   \cny{France}
 }
@@ -182,8 +223,8 @@ University and Institute of Pscychology},
 
 %\vskip1ex
 
-%\projectURL{\url{http://github.com/LORIS}}
-%\projectURL{http://github.com/LORIS}
+%\projectURL{\url{http://cbrain.mcgill.ca}}
+%\projectURL{http://cbrain.mcgill.ca}
 
 % MSC classifications codes, if any
 %\begin{keyword}[class=AMS]
@@ -198,51 +239,50 @@ University and Institute of Pscychology},
 
 \end{frontmatter}
 
-%{\sffamily\bfseries\fontsize{10}{12}\selectfont Project URL: \url{http://github.com/LORIS}}
+%{\sffamily\bfseries\fontsize{10}{12}\selectfont Project URL: \url{http://cbrain.mcgill.ca}}
 
 %%% Import the body from pandoc formatted text
 \section{Introduction}\label{introduction}
 
 We aim at the large-scale, automatic sharing of software tools between
-neuroimaging processing platforms. In this session, we worked on the
-export of tools from Nipype to CBRAIN.
-
-During the HBM 2015 Hackathon, we worked on the export of software tools
-from the Nipype workflow engine \cite{Gorgolewski2011} to the CBRAIN web
-platform for distributed computing \cite{sherif2014cbrain}. Our solution
-allows to export Nipype interfaces to the ``Boutiques'' description
-format importable by CBRAIN and pointing to a Docker image, containing
-the implementation of the interface. The interface and its
-implementation can be automatically exported from Nipype to CBRAIN (see
-Fig. 1) and to other platforms supporting Boutiques (e.g.~Virtual
-Imaging Platform and the Pegasus workflow engine).
+neuroimaging processing platforms. During the HBM 2015 Hackathon, we
+worked on the export of software tools from the Nipype workflow engine
+\cite{Gorgolewski2011} to the CBRAIN web platform for distributed
+computing \cite{sherif2014cbrain}. Our solution allows to export Nipype
+interfaces to the ``Boutiques'' description format importable by CBRAIN
+and pointing to a Docker image containing the implementation of the
+interface. The interface and its implementation can be automatically
+exported from Nipype to CBRAIN (see Fig. 1) and to other platforms
+supporting Boutiques (e.g.~Virtual Imaging Platform and the Pegasus
+workflow engine).
 
 \section{Approach}\label{approach}
 
 We developed a tool to export Nipype interfaces to the Boutiques tool
 description format (step 1. on Fig 1.). nipype2boutiques relies on
-nipype\_cmd (a tool to run Nipype Interfaces as Linux command lines).
+nipype\_cmd, a tool to run Nipype Interfaces as Linux command lines.
 nipype2boutiques parses the inputs and outputs of a Nipype interface and
 extracts their name, type, description and position on the nipype\_cmd
 command line. nipype2boutiques then generates a Boutiques descriptor
-pointing to a docker image where the Nipype interface is available. Once
+pointing to a Docker image where the Nipype interface is available. Once
 a Nipype interface is exported using nipye2boutiques, it can be imported
 to CBRAIN.
 
 \begin{figure}[h!]
-  \includegraphics[width=.47\textwidth]{Nipype_CBRAIN.png}
+  \includegraphics[width=.47\textwidth]{architecture.pdf}
   \caption{\label{centfig} System architecture.}
 \end{figure}
 
 \section{Results}\label{results}
 
 We tested nipype2boutiques on a few Nipype interfaces from the FSL
-Nipype module. We were able to export 3 FSL tools automatically from
-Nipype to CBRAIN, and we verified their correct execution in CBRAIN.
-Limitations remain on the type of Nipype interface that can be exported
-by nipype2boutiques: In particular, optional inputs are currently
-ignored, InputMultiPath are not supported, and output files have to be
-written in the execution directory of the Nipype Interface.
+Nipype module. We exported 64 FSL tools automatically from Nipype to
+CBRAIN, and made them available at
+\url{https://github.com/glatard/boutiques-nipype-fsl}. Limitations
+remain on the type of Nipype interface that can be exported by
+nipype2boutiques: in particular, InputMultiPath are currently not
+supported, and output files have to be written in the execution
+directory of the Nipype Interface.
 
 \section{Conclusions}\label{conclusions}
 
@@ -261,13 +301,16 @@ Nipype and CBRAIN.
 \begin{backmatter}
 
 \section*{Availability of Supporting Data}
-More information about this project can be found at: \url{http://github.com/LORIS}. Further data and files supporting this project are hosted in the \emph{GigaScience} repository REFXXX.
+More information about this project can be found at: \url{http://cbrain.mcgill.ca}. Further data and files supporting this project are hosted in the \emph{GigaScience} repository REFXXX.
 
 \section*{Competing interests}
 None
 
 \section*{Author's contributions}
-TG wrote the software and the report.
+TG wrote the software and the report; SD contributed to the concept
+elaboration at the OHBM event, RA, NB, PR and MER provided support on
+the CBRAIN framework, RB implemented Boutiques in CBRAIN, NKM provided
+background information on fMRI packages, ACE spearheaded the project.
 
 \section*{Acknowledgements}
 The authors would like to thank the organizers and attendees of the 2015
