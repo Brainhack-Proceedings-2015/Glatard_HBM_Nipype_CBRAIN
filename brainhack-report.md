@@ -100,25 +100,26 @@ higher-quality tools. Currently, efforts are hampered by the
 repetitive porting of the same few tools in different platforms.
 During the HBM 2015 Hackathon, we worked on the export of software
 tools from the Nipype workflow engine \cite{Gorgolewski2011} to the
-CBRAIN web platform for distributed computing
-\cite{sherif2014cbrain}. Nipype includes a large number of tools that
-would be useful to CBRAIN users.
+CBRAIN web platform for distributed
+computing \cite{sherif2014cbrain}. Nipype includes a large number of
+tools that would be useful to CBRAIN users.
 
 #Approach
 
-We developed a tool to export Nipype interfaces to the "Boutiques"
-tool description format (step 1. on Figure 1.). Boutiques descriptions
-are importable by CBRAIN and other platforms (Virtual Imaging Platform
-\cite{GLAT-13} and the Pegasus workflow engine \cite{DEEL-16}). They
-point to a Docker image containing the implementation of the
-tool. nipype2boutiques relies on nipype_cmd, a tool to run Nipype
-Interfaces as Linux command lines. nipype2boutiques parses the inputs
-and outputs of a Nipype interface and extracts their name, type,
-description and position on the nipype_cmd command
-line. nipype2boutiques then generates a Boutiques descriptor pointing
-to a Docker image where the Nipype interface is available. Once a
-Nipype interface is exported using nipye2boutiques, it can be imported
-to CBRAIN.
+We developed \texttt{nipype2boutiques}, a tool to export Nipype
+interfaces to the "Boutiques" tool description format (step 1. on
+Figure 1.). Boutiques descriptions are importable by CBRAIN and other
+platforms (Virtual Imaging Platform \cite{GLAT-13} and the Pegasus
+workflow engine \cite{DEEL-16}). They point to a Docker image
+containing the implementation of the tool. \texttt{nipype2boutiques}
+relies on \texttt{nipype\_cmd}, a tool to run Nipype Interfaces as
+Linux command lines. \texttt{nipype2boutiques} parses the inputs and
+outputs of a Nipype interface and extracts their name, type,
+description and position on the \texttt{nipype\_cmd} command
+line. \texttt{nipype2boutiques} then generates a Boutiques descriptor
+pointing to a Docker image where the Nipype interface is
+available. Once a Nipype interface is exported using
+\texttt{nipye2boutiques}, it can be imported to CBRAIN.
 
 \begin{figure}[h!]
   \def\svgwidth{\columnwidth}
@@ -129,13 +130,13 @@ to CBRAIN.
 
 #Results
 
-We tested nipype2boutiques on a few Nipype interfaces from the FSL
-Nipype module. We exported 64 FSL tools automatically from Nipype to
-CBRAIN, and made them available at
+We tested \texttt{nipype2boutiques} on a few Nipype interfaces from
+the FSL Nipype module. We exported 64 FSL tools automatically from
+Nipype to CBRAIN, and made them available at
 \url{https://github.com/glatard/boutiques-nipype-fsl}. Limitations
 remain on the type of Nipype interface that can be exported by
-nipype2boutiques: in particular, InputMultiPath are currently not
-supported, and output files have to be written in the execution
+\texttt{nipype2boutiques}: in particular, InputMultiPath are currently
+not supported, and output files have to be written in the execution
 directory of the Nipype Interface.
 
 # Conclusions
@@ -145,7 +146,7 @@ descriptors which can be imported by CBRAIN and other
 platforms. Although the solution is still limited to simple
 interfaces, we believe that it has the potential to enable
 fully-automatic tool sharing between Nipype and CBRAIN. Future
-extensions of the nipype2boutiques tool will be published in the
+extensions of \texttt{nipype2boutiques} will be published in the
 Nipype Github repository at \url{https://github.com/nipy/nipype}. We
 also plan on a tighter integration of Nipype workflows in CBRAIN,
-following the model adopted in~\cite{GLAT-16}.
+following the model adopted in \cite{GLAT-16}.
