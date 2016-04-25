@@ -98,8 +98,9 @@ We aim at the large-scale, automatic sharing of software tools between neuroimag
 We developed a tool to export Nipype interfaces to the Boutiques tool description format (step 1. on Fig 1.). nipype2boutiques relies on nipype_cmd, a tool to run Nipype Interfaces as Linux command lines. nipype2boutiques parses the inputs and outputs of a Nipype interface and extracts their name, type, description and position on the nipype_cmd command line. nipype2boutiques then generates a Boutiques descriptor pointing to a Docker image where the Nipype interface is available. Once a Nipype interface is exported using nipye2boutiques, it can be imported to CBRAIN. 
 
 \begin{figure}[h!]
-  \includegraphics[width=.47\textwidth]{architecture.pdf}
-  \caption{\label{centfig} System architecture.}
+  \def\svgwidth{\columnwidth}
+  \input{architecture.pdf_tex}
+  \caption{\label{centfig} System architecture.} 
 \end{figure}
 
 
