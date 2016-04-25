@@ -245,28 +245,29 @@ Neuroinformatics and Mental Health, Montreal Neurological Institute
 \section{Introduction}\label{introduction}
 
 We aim at the large-scale, automatic sharing of software tools between
-neuroimaging processing platforms. During the HBM 2015 Hackathon, we
-worked on the export of software tools from the Nipype workflow engine
-\cite{Gorgolewski2011} to the CBRAIN web platform for distributed
-computing \cite{sherif2014cbrain}. Our solution allows to export Nipype
-interfaces to the ``Boutiques'' description format importable by CBRAIN
-and pointing to a Docker image containing the implementation of the
-interface. The interface and its implementation can be automatically
-exported from Nipype to CBRAIN (see Fig. 1) and to other platforms
-supporting Boutiques (e.g.~Virtual Imaging Platform \cite{GLAT-13} and
-the Pegasus workflow engine \cite{DEEL-16}).
+neuroimaging processing platforms, which will increase the relevance of
+such platforms by providing them with richer repositories of
+higher-quality tools. Currently, efforts are hampered by the repetitive
+porting of the same few tools in different platforms. During the HBM
+2015 Hackathon, we worked on the export of software tools from the
+Nipype workflow engine \cite{Gorgolewski2011} to the CBRAIN web platform
+for distributed computing \cite{sherif2014cbrain}. Nipype includes a
+large number of tools that would be useful to CBRAIN users.
 
 \section{Approach}\label{approach}
 
-We developed a tool to export Nipype interfaces to the Boutiques tool
-description format (step 1. on Fig 1.). nipype2boutiques relies on
-nipype\_cmd, a tool to run Nipype Interfaces as Linux command lines.
-nipype2boutiques parses the inputs and outputs of a Nipype interface and
-extracts their name, type, description and position on the nipype\_cmd
-command line. nipype2boutiques then generates a Boutiques descriptor
-pointing to a Docker image where the Nipype interface is available. Once
-a Nipype interface is exported using nipye2boutiques, it can be imported
-to CBRAIN.
+We developed a tool to export Nipype interfaces to the ``Boutiques''
+tool description format (step 1. on Figure 1.). Boutiques descriptions
+are importable by CBRAIN and other platforms (Virtual Imaging Platform
+\cite{GLAT-13} and the Pegasus workflow engine \cite{DEEL-16}). They
+point to a Docker image containing the implementation of the tool.
+nipype2boutiques relies on nipype\_cmd, a tool to run Nipype Interfaces
+as Linux command lines. nipype2boutiques parses the inputs and outputs
+of a Nipype interface and extracts their name, type, description and
+position on the nipype\_cmd command line. nipype2boutiques then
+generates a Boutiques descriptor pointing to a Docker image where the
+Nipype interface is available. Once a Nipype interface is exported using
+nipye2boutiques, it can be imported to CBRAIN.
 
 \begin{figure}[h!]
   \def\svgwidth{\columnwidth}
