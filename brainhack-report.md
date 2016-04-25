@@ -128,7 +128,24 @@ to CBRAIN.
 
 
 #Results
-We tested nipype2boutiques on a few Nipype interfaces from the FSL Nipype module. We exported 64 FSL tools automatically from Nipype to CBRAIN, and made them available at \url{https://github.com/glatard/boutiques-nipype-fsl}. Limitations remain on the type of Nipype interface that can be exported by nipype2boutiques: in particular, InputMultiPath are currently not supported, and output files have to be written in the execution directory of the Nipype Interface. 
+
+We tested nipype2boutiques on a few Nipype interfaces from the FSL
+Nipype module. We exported 64 FSL tools automatically from Nipype to
+CBRAIN, and made them available at
+\url{https://github.com/glatard/boutiques-nipype-fsl}. Limitations
+remain on the type of Nipype interface that can be exported by
+nipype2boutiques: in particular, InputMultiPath are currently not
+supported, and output files have to be written in the execution
+directory of the Nipype Interface.
 
 # Conclusions
-We prototyped a software tool to export Nipype Interfaces as Boutiques descriptors which can be imported by CBRAIN and other platforms. Although the solution is still limited to simple interfaces, we believe that it has the potential to enable fully-automatic tool sharing between Nipype and CBRAIN. 
+
+We prototyped a software tool to export Nipype Interfaces as Boutiques
+descriptors which can be imported by CBRAIN and other
+platforms. Although the solution is still limited to simple
+interfaces, we believe that it has the potential to enable
+fully-automatic tool sharing between Nipype and CBRAIN. Future
+extensions of the nipype2boutiques tool will be published in the
+Nipype Github repository at \url{https://github.com/nipy/nipype}. We
+also plan on a tighter integration of Nipype workflows in CBRAIN,
+following the model adopted in~\cite{GLAT-16}.
