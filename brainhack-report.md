@@ -87,7 +87,7 @@ contrib: TG wrote the software and the report; SD contributed to the concept ela
   
 bibliography: brainhack-report
 
-gigascience-ref: REFXXX
+gigascience-ref: \href{http://gigadb.org/dataset/100226}{doi:10.5524/100226}
 ...
 
 #Introduction
