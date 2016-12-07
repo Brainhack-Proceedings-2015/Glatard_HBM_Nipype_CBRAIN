@@ -75,7 +75,6 @@ affiliations:
   street: 7, avenue Jean Capelle
   postcode: 69621
   city: Villeurbanne
-  state: 
   country: France
 
 url: http://cbrain.mcgill.ca
